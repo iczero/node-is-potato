@@ -10,6 +10,15 @@ describe('is-potato', () => {
     // should return true
     assert.isTrue(isPotato(potato));
   });
+  it('should correctly identify things that are technically potatoes', () => {
+    /** A class representing a potato */
+    class Potato {}
+    /** A class representing a thing */
+    class Thing extends Potato {}
+    // a thing that is technically a potato
+    let thing = new Thing();
+    assert.isTrue(isPotato(thing));
+  });
   it('should correctly identify non-potatoes', () => {
     // distinctly not a potato
     assert.isFalse(isPotato(5));

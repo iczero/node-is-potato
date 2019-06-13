@@ -1,6 +1,6 @@
 {
   "name": "is-potato",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tests if an object is a potato",
   "main": "index.js",
   "directories": {

@@ -1,0 +1,31 @@
+{
+  "name": "is-potato",
+  "version": "1.0.0",
+  "description": "Tests if an object is a potato",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iczero/node-is-potato.git"
+  },
+  "keywords": [
+    "potato"
+  ],
+  "author": "iczero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iczero/node-is-potato/issues"
+  },
+  "homepage": "https://github.com/iczero/node-is-potato#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.13.0",
+    "mocha": "^6.1.4"
+  }
+}

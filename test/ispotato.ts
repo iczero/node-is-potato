@@ -1,5 +1,5 @@
-const assert = require('chai').assert;
-const isPotato = require('..');
+import { assert } from 'chai';
+import isPotato from '../src/ispotato.js';
 
 describe('is-potato', () => {
   it('should correctly identify potatoes', () => {
@@ -33,5 +33,20 @@ describe('is-potato', () => {
   it('should not choke on null or undefined', () => {
     assert.isFalse(isPotato(null));
     assert.isFalse(isPotato(undefined));
+  });
+  it('should identify probabalistic potatoes', () => {
+    // FIXME: test is non-deterministic
+    const MAX_RUNS = 10000;
+    let foundFalse = false;
+    let foundTrue = false;
+    class ProbablyPotato {}
+    for (let i = 0; i < MAX_RUNS; i++) {
+      let potato = new ProbablyPotato();
+      if (isPotato(potato)) foundTrue = true;
+      else foundFalse = true;
+      if (foundTrue && foundFalse) break;
+    }
+    assert.isTrue(foundTrue);
+    assert.isTrue(foundFalse);
   });
 });

@@ -21,6 +21,10 @@ console.log(isPotato(53)); // false
 
 Run `npm test`
 
+## This must be a joke?
+
+I'm glad you asked. Yes it is.
+
 ## License
 
 ISC

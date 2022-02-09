@@ -30,4 +30,8 @@ describe('is-potato', () => {
     let notPotato = new NotPotato();
     assert.isFalse(isPotato(notPotato));
   });
+  it('should not choke on null or undefined', () => {
+    assert.isFalse(isPotato(null));
+    assert.isFalse(isPotato(undefined));
+  });
 });

@@ -1,4 +1,4 @@
-# is-potato [![Build Status](https://travis-ci.org/iczero/node-is-potato.svg?branch=master)](https://travis-ci.org/iczero/node-is-potato)
+# is-potato
 
 Identifies potatoes.
 

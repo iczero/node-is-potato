@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "npm run build && mocha build/test"
+    "test": "mocha build/test"
   },
   "repository": {
     "type": "git",

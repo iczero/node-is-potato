@@ -703,6 +703,38 @@ export class KeccakRand extends KeccakWritable {
   }
 
   /**
+   * Sample a normal distribution
+   * @param mean Distribution mean
+   * @param stdev Distribution standard deviation
+   */
+  norm(mean = 0, stdev = 1): number {
+    let [u1, u2] = this.floatMany(2);
+    let z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+    return z * stdev + mean;
+  }
+
+  /**
+   * Sample a normal distribution many times
+   * @param count Number of samples to generate. Actual value may be greater
+   * @param mean Distribution mean
+   * @param stdev Distribution standard deviation
+   */
+  normMany(count: number, mean = 0, stdev = 1): number[] {
+    let iterCount = Math.ceil(count / 2);
+    let floats = this.floatMany(iterCount * 2);
+    let out: number[] = new Array(iterCount * 2);
+    for (let i = 0; i < iterCount * 2; i += 2) {
+      let u1 = floats[i];
+      let u2 = floats[i + 1];
+      let z1 = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+      let z2 = Math.sqrt(-2 * Math.log(u1)) * Math.sin(2 * Math.PI * u2);
+      out[i] = z1 * stdev + mean;
+      out[i + 1] = z2 * stdev + mean;
+    }
+    return out;
+  }
+
+  /**
    * Generate random integer in range [low, high)
    * @param low Lower limit, inclusive
    * @param high Upper limit, exclusive
